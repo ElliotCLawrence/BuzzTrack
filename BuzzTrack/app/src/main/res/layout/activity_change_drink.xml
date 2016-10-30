@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1A27B2"
+    >
+
+
+    <Button
+        android:text="Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/Beer"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/Wine"
+        tools:text="Wine" />
+
+    <Button
+        android:text="Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="28dp"
+        android:id="@+id/Liqour"
+        android:layout_alignBaseline="@+id/Wine"
+        android:layout_alignBottom="@+id/Wine"
+        android:layout_alignParentEnd="true"
+        tools:text="Liqour" />
+
+    <Button
+        android:text="Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="29dp"
+        android:id="@+id/Beer"
+        android:layout_marginEnd="26dp"
+        android:layout_alignParentTop="true"
+        android:layout_toStartOf="@+id/Wine"
+        tools:text="Beer" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="23dp"
+        android:id="@+id/textView"
+        android:layout_below="@+id/Wine"
+        android:layout_alignStart="@+id/Beer"
+        android:layout_alignEnd="@+id/Liqour"
+        android:textAlignment="center"
+        tools:text="Alcoholic Beverage Content (measured in %)" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:layout_marginTop="19dp"
+        android:id="@+id/ABV"
+        android:layout_below="@+id/textView"
+        android:layout_alignStart="@+id/textView"
+        android:layout_alignEnd="@+id/textView"
+        android:textAlignment="center"
+        android:hint="40"
+        />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="19dp"
+        android:id="@+id/textView2"
+        tools:text="Liquid Ammount (measured in Fluid OZ)"
+        android:layout_below="@+id/ABV"
+        android:textAlignment="center"
+        android:layout_alignStart="@+id/ABV"
+        android:layout_alignEnd="@+id/ABV" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/FluidOZ"
+        android:hint="12"
+        android:layout_centerVertical="true"
+        android:layout_alignStart="@+id/textView2"
+        android:textAlignment="center"
+        android:layout_alignEnd="@+id/ABV" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/FluidOZ"
+        android:layout_alignStart="@+id/FluidOZ"
+        android:layout_marginTop="19dp"
+        android:id="@+id/textView3"
+        tools:text="Name of your drink"
+        android:textAlignment="center"
+        android:layout_alignEnd="@+id/FluidOZ" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:layout_marginTop="19dp"
+        android:id="@+id/editText4"
+        android:layout_below="@+id/textView3"
+        android:layout_alignStart="@+id/textView3"
+        android:hint="Whiskey Sour"
+        android:textAlignment="center"
+        android:layout_alignEnd="@+id/textView3" />
+
+    <Button
+        android:text="Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editText4"
+        android:layout_marginTop="42dp"
+        android:id="@+id/button4"
+        tools:text="Save Drink"
+        android:layout_toEndOf="@+id/Beer" />
+
+</RelativeLayout>
