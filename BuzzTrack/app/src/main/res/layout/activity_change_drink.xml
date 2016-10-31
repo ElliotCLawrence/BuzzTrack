@@ -4,23 +4,26 @@
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
     android:background="#1A27B2"
+    tools:context=".change_drink"
     >
 
 
     <Button
-        android:text="Button"
+
+        android:text="Wine"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/Beer"
         android:layout_centerHorizontal="true"
         android:id="@+id/Wine"
+        android:onClick="wine"
         tools:text="Wine" />
 
     <Button
-        android:text="Button"
+        android:text="Liqour"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="28dp"
@@ -28,10 +31,11 @@
         android:layout_alignBaseline="@+id/Wine"
         android:layout_alignBottom="@+id/Wine"
         android:layout_alignParentEnd="true"
+        android:onClick="liqour"
         tools:text="Liqour" />
 
     <Button
-        android:text="Button"
+        android:text="Beer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="29dp"
@@ -39,10 +43,11 @@
         android:layout_marginEnd="26dp"
         android:layout_alignParentTop="true"
         android:layout_toStartOf="@+id/Wine"
+        android:onClick="beer"
         tools:text="Beer" />
 
     <TextView
-        android:text="TextView"
+        android:text="Alcoholic Beverage Content (measured in %)"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="23dp"
@@ -64,11 +69,11 @@
         android:layout_alignStart="@+id/textView"
         android:layout_alignEnd="@+id/textView"
         android:textAlignment="center"
-        android:hint="40"
+        android:hint="40.0"
         />
 
     <TextView
-        android:text="TextView"
+        android:text="Liquid Ammount (measured in Fluid OZ)"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="19dp"
@@ -85,14 +90,14 @@
         android:inputType="number"
         android:ems="10"
         android:id="@+id/FluidOZ"
-        android:hint="12"
+        android:hint="12.0"
         android:layout_centerVertical="true"
         android:layout_alignStart="@+id/textView2"
         android:textAlignment="center"
         android:layout_alignEnd="@+id/ABV" />
 
     <TextView
-        android:text="TextView"
+        android:text="Name of your drink"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/FluidOZ"
@@ -109,7 +114,7 @@
         android:inputType="textPersonName"
         android:ems="10"
         android:layout_marginTop="19dp"
-        android:id="@+id/editText4"
+        android:id="@+id/DrinkName"
         android:layout_below="@+id/textView3"
         android:layout_alignStart="@+id/textView3"
         android:hint="Whiskey Sour"
@@ -117,13 +122,15 @@
         android:layout_alignEnd="@+id/textView3" />
 
     <Button
-        android:text="Button"
+        android:text="Save Drink"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/editText4"
-        android:layout_marginTop="42dp"
+        android:layout_marginTop="44dp"
         android:id="@+id/button4"
         tools:text="Save Drink"
-        android:layout_toEndOf="@+id/Beer" />
+        android:layout_below="@+id/DrinkName"
+        android:layout_alignStart="@+id/DrinkName"
+        android:layout_marginStart="88dp"
+        android:layout_toStartOf="@+id/Liqour" />
 
 </RelativeLayout>
