@@ -1,5 +1,6 @@
 package com.example.elliot.buzztrack;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -15,6 +16,7 @@ import java.util.TimerTask;
 import java.util.concurrent.RunnableFuture;
 
 import static com.example.elliot.buzztrack.R.id.BAC;
+import static com.example.elliot.buzztrack.R.id.curDrink;
 
 public class Home extends AppCompatActivity {
 
@@ -46,16 +48,37 @@ public class Home extends AppCompatActivity {
                 updateBAC();
             }
         }, 0, 1000);
+
+        currentDrink = new Drink("beer",5.0,12.0,System.currentTimeMillis());
+        TextView dName = (TextView) findViewById(curDrink);
+        dName.setText("Currently drinking: Beer");
         /*****************/
         /*End timer setup*/
 
 
     }
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
+        super.onActivityResult(requestCode,resultCode,data);
+        switch(requestCode)
+        {
+            case (1) : //if coming back from change_drink
+            {
+                if (resultCode == Activity.RESULT_OK)
+                {
+                    //code for new drink...
+
+                }
+            }
+        }
+    }
+
     public void changeDrink(View view) //move to change drink activity
     {
         Intent intent = new Intent(this, change_drink.class);
-        startActivity(intent);
+        startActivityForResult(intent, 1); //1 is for the changeDrink
     }
 
     public void updateBAC()

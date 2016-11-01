@@ -1,9 +1,11 @@
 package com.example.elliot.buzztrack;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import static com.example.elliot.buzztrack.R.id.ABV;
 import static com.example.elliot.buzztrack.R.id.FluidOZ;
@@ -51,5 +53,13 @@ public class change_drink extends Activity {
         abv.setText("40.0");
         volume.setText("1.5");
         name.setText("Liqour");
+    }
+
+    public void saveDrink(View view)
+    {
+        //check if it's valid, if not valid contents, don't leave, and toast the user that they need to change one of the boxes
+        Intent resultIntent = new Intent();
+        setResult(Activity.RESULT_OK, resultIntent);
+        finish();
     }
 }
