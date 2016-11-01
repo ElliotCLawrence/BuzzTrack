@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#1A27B2"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".change_drink">
+
+
+    <TextView
+        android:text="Height (in inches)"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="20dp"
+        android:id="@+id/textView5"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="457dp"
+        android:textAppearance="@style/TextAppearance.AppCompat"
+        android:textAlignment="center" />
+
+    <TextView
+        android:text="Weight (in lbs)"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView6"
+        android:textAppearance="@style/TextAppearance.AppCompat"
+        android:textAlignment="center"
+        android:layout_alignTop="@+id/textView5"
+        android:layout_marginTop="114dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="342dp" />
+
+    <TextView
+        android:text="Sex"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/heightLabel"
+        android:textAppearance="@style/TextAppearance.AppCompat"
+        android:textAlignment="center"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="229dp"
+        android:layout_alignTop="@+id/textView6"
+        android:layout_marginTop="115dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:ems="10"
+        android:layout_above="@+id/heightLabel"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="26dp"
+        android:id="@+id/heightBox"
+        android:layout_alignParentEnd="true"
+        android:hint="6'12"
+        android:textAlignment="center" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:ems="10"
+        android:id="@+id/weightBox"
+        android:layout_below="@+id/heightBox"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="44dp"
+        android:layout_alignParentEnd="true"
+        android:hint="160.0"
+        android:textAlignment="center" />
+
+    <RadioButton
+        android:text="Female"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/FemaleRadio"
+        android:layout_marginEnd="67dp"
+        android:layout_alignBaseline="@+id/MaleRadio"
+        android:layout_alignBottom="@+id/MaleRadio"
+        android:layout_alignParentEnd="true" />
+
+    <RadioButton
+        android:text="Male"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/MaleRadio"
+        android:layout_marginTop="75dp"
+        android:layout_alignTop="@+id/heightLabel"
+        android:layout_toStartOf="@+id/FemaleRadio"
+        android:layout_marginEnd="85dp" />
+
+    <Button
+        android:text="Save Settings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="37dp"
+        android:id="@+id/saveSettings"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:onClick="SaveSettings"/>
+</RelativeLayout>
