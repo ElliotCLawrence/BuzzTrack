@@ -59,7 +59,7 @@
         android:layout_marginBottom="26dp"
         android:id="@+id/heightBox"
         android:layout_alignParentEnd="true"
-        android:hint="6'12"
+        android:hint="72.0"
         android:textAlignment="center" />
 
     <EditText
@@ -75,25 +75,6 @@
         android:hint="160.0"
         android:textAlignment="center" />
 
-    <RadioButton
-        android:text="Female"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/FemaleRadio"
-        android:layout_marginEnd="67dp"
-        android:layout_alignBaseline="@+id/MaleRadio"
-        android:layout_alignBottom="@+id/MaleRadio"
-        android:layout_alignParentEnd="true" />
-
-    <RadioButton
-        android:text="Male"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/MaleRadio"
-        android:layout_marginTop="75dp"
-        android:layout_alignTop="@+id/heightLabel"
-        android:layout_toStartOf="@+id/FemaleRadio"
-        android:layout_marginEnd="85dp" />
 
     <Button
         android:text="Save Settings"
@@ -104,4 +85,33 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:onClick="SaveSettings"/>
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="55dp"
+        android:layout_alignTop="@+id/heightLabel"
+        android:layout_alignParentStart="true"
+        android:orientation="horizontal"
+        android:id="@+id/sexRadio">
+
+        <RadioButton
+
+            android:text="Male"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/maleRadio"
+            android:layout_weight="0.37"
+
+            />
+
+        <RadioButton
+            android:text="Female"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/femaleRadio"
+            android:layout_weight="0.32" />
+    </RadioGroup>
+
+
 </RelativeLayout>

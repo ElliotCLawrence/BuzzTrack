@@ -7,25 +7,28 @@ import java.io.Serializable;
  */
 
 public class SettingsData implements Serializable{
-    private int age;
-    private double weight;
-    private double heightInInches;
-    private boolean isMale; //if false, female
+    public double weight;
+    public double heightInInches;
+    public boolean isMale; //if false, female
+    public boolean isValid;
 
-    public void SettingsData() //helper class for storing settings.
+
+    public SettingsData() //helper class for storing settings.
     {
-        age = 0;
+
         weight = 0.0;
         heightInInches = 0.0;
         isMale = true;
+        isValid = false;
     }
 
-    public void SettingsData(int uAge, double uWeight, double uHeightInInches, boolean uIsMale)
+    public SettingsData(double uWeight, double uHeightInInches, boolean uIsMale)
     {
-        age = uAge;
+
         weight = uWeight;
         heightInInches = uHeightInInches;
         isMale = uIsMale;
+        isValid = true;
 
     }
 }

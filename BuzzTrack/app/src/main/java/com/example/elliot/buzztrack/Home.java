@@ -21,6 +21,7 @@ import static com.example.elliot.buzztrack.R.id.curDrink;
 public class Home extends AppCompatActivity {
 
     private ArrayList<Drink> drinkList;
+    SettingsData currentSettings;
     private Drink currentDrink;
     Timer updateBACScheduler;
 
@@ -55,7 +56,8 @@ public class Home extends AppCompatActivity {
         /*****************/
         /*End timer setup*/
 
-
+        //grab data from database for settings (if any)
+        currentSettings = new SettingsData();
     }
 
     @Override
@@ -76,7 +78,20 @@ public class Home extends AppCompatActivity {
                         TextView dName = (TextView) findViewById(curDrink);
                         dName.setText("Currently drinking: " + currentDrink.name);
                     }
+                }
+            }
 
+            case (2):
+            {
+                if (resultCode == Activity.RESULT_OK)
+                {
+                    //if back from settings
+                    SettingsData newSettings = (SettingsData) data.getSerializableExtra("settings");
+
+                    if (newSettings != null)
+                    {
+                        currentSettings = newSettings;
+                    }
                 }
             }
         }
@@ -87,6 +102,13 @@ public class Home extends AppCompatActivity {
         Intent intent = new Intent(this, change_drink.class);
         intent.putExtra("drink", currentDrink);
         startActivityForResult(intent, 1); //1 is for the changeDrink
+    }
+
+    public void changeSettings(View view)
+    {
+        Intent intent = new Intent(this, Settings.class);
+        intent.putExtra("settings", currentSettings);
+        startActivityForResult(intent, 2); //1 is for the changeDrink
     }
 
     public void updateBAC()
@@ -106,8 +128,4 @@ public class Home extends AppCompatActivity {
 
         Testcounter++;
     }
-
-
-
-
 }
