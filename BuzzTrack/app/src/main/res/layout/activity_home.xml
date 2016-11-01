@@ -50,7 +50,7 @@
         android:inputType="none" />
 
     <Button
-        android:text="ChangeDrink"
+        android:text="Change Drink"
         android:layout_height="wrap_content"
         android:id="@+id/ChangeDrink"
         style="@android:style/Widget.Button"

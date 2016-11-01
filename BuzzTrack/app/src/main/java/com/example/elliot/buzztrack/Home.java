@@ -69,6 +69,13 @@ public class Home extends AppCompatActivity {
                 if (resultCode == Activity.RESULT_OK)
                 {
                     //code for new drink...
+                    Drink temp = (Drink) data.getSerializableExtra("drink");
+                    if (temp != null && temp.valid)
+                    {
+                        currentDrink = temp;
+                        TextView dName = (TextView) findViewById(curDrink);
+                        dName.setText("Currently drinking: " + currentDrink.name);
+                    }
 
                 }
             }
@@ -78,6 +85,7 @@ public class Home extends AppCompatActivity {
     public void changeDrink(View view) //move to change drink activity
     {
         Intent intent = new Intent(this, change_drink.class);
+        intent.putExtra("drink", currentDrink);
         startActivityForResult(intent, 1); //1 is for the changeDrink
     }
 
