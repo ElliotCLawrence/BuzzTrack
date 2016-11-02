@@ -26,37 +26,15 @@ public class Home extends AppCompatActivity {
     private Drink currentDrink;
     Timer updateBACScheduler;
 
-    /*Remove this later*/
-    int Testcounter;
-    /*^Remove this later^*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        Testcounter = 0;
 
         drinkList = new ArrayList<Drink>(); //initalize the drinkList
 
-        /*Timer set up*/
-        /**************/
-        updateBACScheduler = new Timer(); //Set up the timer
-        updateBACScheduler.scheduleAtFixedRate(new TimerTask() { //define what the timer will run
-            @Override
 
-            //This method will execute every 1000 miliseconds to update the BAC
-
-            public void run() {
-                updateBAC();
-            }
-        }, 0, 1000);
-
-
-        currentDrink = new Drink("beer",5.0,12.0,System.currentTimeMillis());
-        TextView dName = (TextView) findViewById(curDrink);
-        dName.setText("Currently drinking: Beer");
-        /*****************/
-        /*End timer setup*/
 
         //grab data from database for settings (if any)
         //currentSettings = new SettingsData();
@@ -77,7 +55,25 @@ public class Home extends AppCompatActivity {
             currentSettings = new SettingsData((double) weight, (double) height, isMale);
         }
 
+        /*Timer set up*/
+        /**************/
+        updateBACScheduler = new Timer(); //Set up the timer
+        updateBACScheduler.scheduleAtFixedRate(new TimerTask() { //define what the timer will run
+            @Override
 
+            //This method will execute every 1000 miliseconds to update the BAC
+
+            public void run() {
+                updateBAC();
+            }
+        }, 0, 5000);
+
+
+        currentDrink = new Drink("beer",5.0,12.0,System.currentTimeMillis());
+        TextView dName = (TextView) findViewById(curDrink);
+        dName.setText("Currently drinking: Beer");
+        /*****************/
+        /*End timer setup*/
     }
 
     @Override
@@ -93,7 +89,6 @@ public class Home extends AppCompatActivity {
             editor.putFloat("height", (float) currentSettings.heightInInches);
             editor.commit();
         }
-
     }
 
 
@@ -152,18 +147,100 @@ public class Home extends AppCompatActivity {
     public void updateBAC()
     {
         final TextView abv = (TextView) findViewById(BAC);
-        final String temp = String.valueOf(Testcounter);
-        assert abv != null;
+
+
+        if (currentSettings.isValid && drinkList.size() > 0)
+        {
+            double gramsOfAlcohol = drinksToGrams();
+            double weightAmmount = currentSettings.weight * 453.592; //453.592 is a conversion from lbs to grams
+            double bAC; //raw BAC, time is not taken into account.
+            double adjustedBAC; //This is the BAC after time is added to calculation
+            double r;  //coefficient for sex
+
+            if (currentSettings.isMale) //if user is male
+                r = 0.68;
+            else                        //user is female
+                r = 0.55;
+
+            bAC = (gramsOfAlcohol/(weightAmmount * r)) * 100; //figure out the base bAC
+            long msPassed = System.currentTimeMillis(); //figure out the time passed
+            msPassed = msPassed - drinkList.get(0).timeDrinken;
+            float hoursPassed = (float) (msPassed/(1000.0*60.0*60.0));
+            adjustedBAC = bAC - (hoursPassed * 0.015);
+
+            if (adjustedBAC < 0.0)
+            {
+                adjustedBAC = 0.0;
+                //remove all drinks
+            }
+
+
+            final String bacString = "BAC: "+ String.format("%.8f",adjustedBAC); //create the final string
+
+            assert abv != null;
+            {
+                runOnUiThread(new Runnable() {
+                    public void run()
+                    {
+                        abv.setText(bacString);
+                    }
+                });
+            }
+        } //end update
+        else
         {
             runOnUiThread(new Runnable() {
                 public void run()
                 {
-                    abv.setText(temp);
+                    abv.setText("BAC: 0.0");
                 }
             });
-
         }
 
-        Testcounter++;
+    }
+
+    public void addDrink(View view)
+    {
+        if (!currentSettings.isValid) //check to make sure user as added settings first.
+        {
+            Toast.makeText(getApplicationContext(),"Please update settings first.",Toast.LENGTH_LONG).show();
+            return;
+        }
+        if (currentDrink.valid) //check to make sure there's a valid drink.
+        {
+            Drink newDrink = new Drink(currentDrink.name, currentDrink.bAC, currentDrink.volume,  System.currentTimeMillis());
+            drinkList.add(newDrink);
+            updateBAC();
+        }
+        else
+        {
+            Toast.makeText(getApplicationContext(),"Please add a drink",Toast.LENGTH_LONG).show();
+        }
+    }
+
+    public void removeDrink(View view)
+    {
+        if (drinkList.size()> 0)
+        {
+            drinkList.remove(drinkList.size()-1);
+            updateBAC();
+        }
+    }
+
+    private double drinksToGrams()
+    {
+        double totalGrams = 0.0;
+        double grams;
+
+        for (Drink drink : drinkList)
+        {
+            grams = drink.bAC * 0.01;
+            grams = grams * (drink.volume * 29.574);
+            //29.574 is a conversion constant from fluid oz to ml
+
+            grams = grams * 0.789; //Did the math on iOS design, not sure where this constant comes from, but it works!
+            totalGrams += grams; //add this drinks alcohol gram count to the total count.
+        }
+        return totalGrams;
     }
 }
