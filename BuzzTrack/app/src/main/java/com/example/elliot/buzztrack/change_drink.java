@@ -74,7 +74,7 @@ public class change_drink extends Activity {
 
         abv.setText("40.0");
         volume.setText("1.5");
-        name.setText("liquor");
+        name.setText("Liquor");
     }
 
     public void saveDrink(View view)
