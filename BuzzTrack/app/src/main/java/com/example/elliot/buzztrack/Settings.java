@@ -54,6 +54,8 @@ public class Settings extends AppCompatActivity {
         }
     }
 
+
+
     public void SaveSettings(View view) //if user clicks save settings.
     {
         EditText heightText = (EditText) findViewById(heightBox);
