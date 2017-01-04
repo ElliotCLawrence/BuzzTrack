@@ -6,7 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="#1A27B2"
+    android:background="#CCFFCC"
     tools:context=".change_drink"
     >
 
