@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">BuzzTrack</string>
+    <string name="changehint1"><i>40.0</i></string>
+    <string name="changehint2"><i>1.5</i></string>
+    <string name="changehint3"><i>Whiskey</i></string>
+    <string name="settingshint1"><i>70.0</i></string>
+    <string name="settingshint2"><i>160.0</i></string>
 </resources>

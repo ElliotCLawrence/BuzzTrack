@@ -12,17 +12,6 @@
 
 
     <Button
-
-        android:text="Wine"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/Beer"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/Wine"
-        android:onClick="wine"
-        tools:text="Wine" />
-
-    <Button
         android:text="Beer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -32,10 +21,12 @@
         android:layout_alignParentTop="true"
         android:layout_toStartOf="@+id/Wine"
         android:onClick="beer"
-        tools:text="Beer" />
+        tools:text="Beer"
+        android:background="@drawable/drawable_black_back"/>
 
     <TextView
         android:text="Name of your drink"
+        android:textColor="#000000"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/FluidOZ"
@@ -47,22 +38,15 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textAlignment="center" />
 
-    <Button
-        android:text="Save Drink"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/button4"
-        tools:text="Save Drink"
-        android:onClick="saveDrink"
-        android:layout_alignParentBottom="true"
-        android:layout_toEndOf="@+id/Beer"
-        android:layout_marginBottom="51dp" />
+
 
     <TextView
+
         android:text="Alcoholic Beverage Content (measured in %)"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="26dp"
+        android:textColor="#000000"
         android:id="@+id/textView"
         tools:text="Alcoholic Beverage Content (measured in %)"
         android:layout_below="@+id/Wine"
@@ -71,55 +55,50 @@
         android:textAlignment="center" />
 
     <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="number|numberDecimal"
-        android:ems="10"
-        android:layout_marginTop="18dp"
-        android:id="@+id/ABV"
-        android:textAlignment="center"
-        android:hint="40.0"
-        android:singleLine="true"
-        android:layout_below="@+id/textView"
-        android:layout_alignStart="@+id/FluidOZ" />
-
-    <TextView
-        android:text="Liquid Ammount (measured in Fluid OZ)"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView2"
-        tools:text="Liquid Ammount (measured in Fluid OZ)"
-        android:layout_below="@+id/ABV"
-        android:layout_alignStart="@+id/textView"
-        android:layout_alignEnd="@+id/textView"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textAlignment="center" />
-
-    <EditText
+        android:background="@drawable/drawable_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="number|numberDecimal"
         android:ems="10"
         android:id="@+id/FluidOZ"
-        android:hint="12.0"
+        android:hint="@string/changehint2"
         android:textAlignment="center"
         android:singleLine="true"
         android:layout_marginTop="12dp"
         android:layout_below="@+id/textView2"
+        android:textColor="#000000"
+        android:textColorHint="#C0C0C0"
         android:layout_centerHorizontal="true" />
 
     <EditText
+        android:background="@drawable/drawable_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
         android:id="@+id/DrinkName"
-        android:hint="Whiskey Sour"
+        android:hint="@string/changehint3"
         android:textAlignment="center"
         android:singleLine="true"
         android:layout_below="@+id/textView3"
         android:layout_alignStart="@+id/FluidOZ"
+        android:textColor="#000000"
+        android:textColorHint="#C0C0C0"
         android:layout_marginTop="16dp" />
+
+    <TextView
+
+        android:text="Liquid Ammount (measured in Fluid OZ)"
+        android:textColor="#000000"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView2"
+        tools:text="Liquid Ammount (measured in Fluid OZ)"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textAlignment="center"
+        android:layout_below="@+id/ABV"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="11dp" />
 
     <Button
         android:text="Liquor"
@@ -128,9 +107,51 @@
         android:id="@+id/Liquor"
         android:onClick="liquor"
         tools:text="Liquor"
-        android:layout_marginStart="11dp"
-        android:layout_alignBaseline="@+id/Wine"
-        android:layout_alignBottom="@+id/Wine"
-        android:layout_toEndOf="@+id/button4" />
+        android:layout_marginStart="25dp"
+        android:layout_above="@+id/textView"
+        android:layout_toEndOf="@+id/Wine"
+        android:background="@drawable/drawable_black_back"/>
+
+    <Button
+        android:text="Save Drink"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button4"
+        android:onClick="saveDrink"
+        tools:text="Save Drink"
+        android:layout_marginBottom="51dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/DrinkName"
+        android:layout_alignEnd="@+id/DrinkName"
+        android:background="@drawable/drawable_black_back"/>
+
+    <Button
+
+        android:text="Wine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/Wine"
+        android:onClick="wine"
+        tools:text="Wine"
+        android:layout_alignBaseline="@+id/Beer"
+        android:layout_alignBottom="@+id/Beer"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/drawable_black_back"/>
+
+    <EditText
+        android:background="@drawable/drawable_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number|numberDecimal"
+        android:ems="10"
+        android:layout_marginTop="15dp"
+        android:id="@+id/ABV"
+        android:textAlignment="center"
+        android:hint="@string/changehint1"
+        android:textColor="#000000"
+        android:textColorHint="#C0C0C0"
+        android:singleLine="true"
+        android:layout_below="@+id/textView"
+        android:layout_alignStart="@+id/FluidOZ" />
 
 </RelativeLayout>

@@ -13,61 +13,44 @@
     tools:context="com.example.elliot.buzztrack.Home">
 
 
-    <TextView
+    <Button
+        android:text="Settings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:id="@+id/BAC"
-        tools:text="BAC: "
-        style="@android:style/Widget.AutoCompleteTextView"
-        android:text="BAC: "
-        android:layout_marginBottom="27dp"
-        android:textAlignment="center"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
+        android:id="@+id/button"
+        android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:editable="false"
-        android:clickable="false"
-        android:inputType="none" />
+        android:onClick="changeSettings"
+        android:background="@drawable/drawable_black_back"
+        />
 
     <Button
-        android:text="Change Drink"
+        android:text="Change current drink"
         android:layout_height="wrap_content"
         android:id="@+id/ChangeDrink"
         style="@android:style/Widget.Button"
         android:layout_width="200dp"
         android:textAppearance="@style/TextAppearance.AppCompat"
-        android:layout_marginBottom="50dp"
-        android:layout_above="@+id/Drink"
-        android:layout_centerHorizontal="true"
-        android:onClick="changeDrink"/>
+        android:onClick="changeDrink"
+        android:background="@drawable/drawable_black_back"
+        android:layout_marginBottom="48dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
 
     <Button
-        android:text="Undo"
+        android:text="Undo last drink"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/Undo"
         android:elevation="0dp"
         style="@android:style/Widget.Button"
-        android:layout_marginBottom="50dp"
 
-        android:layout_above="@+id/BAC"
-        android:layout_alignEnd="@+id/Drink"
-        android:layout_alignStart="@+id/Drink"
-        android:onClick="removeDrink"/>
-
-    <Button
-        android:text="Drink"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/Drink"
-        android:elevation="0dp"
-        style="@android:style/Widget.Button"
-        android:layout_marginBottom="50dp"
-        android:layout_above="@+id/Undo"
+        android:onClick="removeDrink"
+        android:background="@drawable/drawable_black_back"
+        android:layout_marginBottom="35dp"
+        android:layout_above="@+id/ChangeDrink"
         android:layout_alignStart="@+id/ChangeDrink"
-        android:layout_alignEnd="@+id/ChangeDrink"
-        android:onClick="addDrink"/>
+        android:layout_alignEnd="@+id/ChangeDrink" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -76,25 +59,68 @@
         android:id="@+id/curDrink"
         tools:text="Currently Drinking:"
         android:inputType="none"
-        style="@android:style/Widget.AutoCompleteTextView"
+        android:textColor="#000000"
         android:text="Currently Drinking:"
-
         android:textAlignment="center"
         android:clickable="false"
-        android:layout_above="@+id/ChangeDrink"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="44dp" />
+        android:layout_above="@+id/Drink"
+        android:layout_marginBottom="20dp"
+        android:background="@android:color/transparent"
+        style="@android:style/Widget.AutoCompleteTextView"
+        android:layout_marginTop="13dp"
+        android:layout_below="@+id/Drinks_Consumed" />
 
     <Button
-        android:text="Settings"
+        android:text="Press when drink finished"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/button"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:onClick="changeSettings"/>
+        android:id="@+id/Drink"
+        android:elevation="0dp"
+        style="@android:style/Widget.Button"
+        android:onClick="addDrink"
+        android:background="@drawable/drawable_black_back"
+        android:layout_above="@+id/Undo"
+        android:layout_alignStart="@+id/Undo"
+        android:layout_marginBottom="35dp"
+        android:layout_alignEnd="@+id/Undo" />
+
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:id="@+id/BAC"
+        tools:text="BAC: "
+        style="@android:style/Widget.AutoCompleteTextView"
+        android:text="BAC: "
+        android:textAlignment="center"
+        android:editable="false"
+        android:clickable="false"
+        android:textColor="#000000"
+        android:inputType="none"
+        android:background="@android:color/transparent"
+        android:layout_below="@+id/button"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="15dp"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:text="Drinks consumed: 0"
+        android:ems="10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        style="@android:style/Widget.AutoCompleteTextView"
+        android:id="@+id/Drinks_Consumed"
+        android:clickable="false"
+        android:textColor="#000000"
+        android:background="@android:color/transparent"
+        android:layout_marginTop="18dp"
+        android:layout_below="@+id/BAC"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true" />
 
 
 </RelativeLayout>

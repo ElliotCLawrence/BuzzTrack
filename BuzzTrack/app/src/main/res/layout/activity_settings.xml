@@ -19,7 +19,8 @@
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="457dp"
         android:textAppearance="@style/TextAppearance.AppCompat"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:textColor="#000000"/>
 
     <TextView
         android:text="Weight (in lbs)"
@@ -33,47 +34,8 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="342dp" />
-
-    <TextView
-        android:text="Sex"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/heightLabel"
-        android:textAppearance="@style/TextAppearance.AppCompat"
-        android:textAlignment="center"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="229dp"
-        android:layout_alignTop="@+id/textView6"
-        android:layout_marginTop="115dp" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="numberDecimal"
-        android:ems="10"
-        android:layout_above="@+id/heightLabel"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="26dp"
-        android:id="@+id/heightBox"
-        android:layout_alignParentEnd="true"
-        android:hint="72.0"
-        android:textAlignment="center" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="numberDecimal"
-        android:ems="10"
-        android:id="@+id/weightBox"
-        android:layout_below="@+id/heightBox"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="44dp"
-        android:layout_alignParentEnd="true"
-        android:hint="160.0"
-        android:textAlignment="center" />
+        android:layout_marginBottom="342dp"
+        android:textColor="#000000"/>
 
 
     <Button
@@ -83,25 +45,72 @@
         android:layout_marginBottom="37dp"
         android:id="@+id/saveSettings"
         android:layout_alignParentBottom="true"
+        android:onClick="SaveSettings"
+        android:background="@drawable/drawable_black_back"
+        android:layout_alignEnd="@+id/weightBox"
+        android:layout_marginEnd="12dp"
+        android:layout_alignStart="@+id/sexRadio" />
+
+    <EditText
+        android:background="@drawable/drawable_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:ems="10"
+        android:id="@+id/heightBox"
+        android:hint="@string/settingshint1"
+        android:textAlignment="center"
+        android:layout_marginTop="43dp"
+        android:layout_alignTop="@+id/textView5"
         android:layout_centerHorizontal="true"
-        android:onClick="SaveSettings"/>
+        android:textColor="#000000"
+        android:textColorHint="#C0C0C0"/>
+
+    <EditText
+        android:background="@drawable/drawable_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:ems="10"
+        android:id="@+id/weightBox"
+        android:hint="@string/settingshint2"
+        android:textAlignment="center"
+        android:layout_marginTop="38dp"
+        android:layout_alignTop="@+id/textView6"
+        android:layout_alignStart="@+id/heightBox"
+        android:textColor="#000000"
+        android:textColorHint="#C0C0C0"/>
+
+    <TextView
+        android:text="Sex"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/heightLabel"
+        android:textAppearance="@style/TextAppearance.AppCompat"
+        android:textAlignment="center"
+        android:layout_marginTop="24dp"
+        android:textColor="#000000"
+        android:layout_below="@+id/weightBox"
+        android:layout_alignEnd="@+id/weightBox"
+        android:layout_alignStart="@+id/weightBox" />
 
     <RadioGroup
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:layout_marginTop="55dp"
-        android:layout_alignTop="@+id/heightLabel"
-        android:layout_alignParentStart="true"
+        android:layout_marginTop="40dp"
         android:orientation="horizontal"
-        android:id="@+id/sexRadio">
+        android:id="@+id/sexRadio"
+        android:layout_alignTop="@+id/heightLabel"
+        android:layout_alignStart="@+id/heightLabel"
+        android:layout_alignEnd="@+id/heightLabel">
 
         <RadioButton
-
             android:text="Male"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/maleRadio"
             android:layout_weight="0.37"
+            android:textColor="#000000"
 
             />
 
@@ -110,8 +119,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/femaleRadio"
-            android:layout_weight="0.32" />
+            android:layout_weight="0.32"
+            android:textColor="#000000"/>
     </RadioGroup>
+
+    <TextView
+        android:text="All BAC calculations are estimates\nDo not drink and drive"
+        android:background="@android:color/transparent"
+        style="@android:style/Widget.AutoCompleteTextView"
+        android:textAlignment="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/sexRadio"
+        android:layout_marginTop="20dp"
+        android:id="@+id/LegalContents"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true" />
 
 
 </RelativeLayout>
