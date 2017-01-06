@@ -18,6 +18,7 @@ import java.util.concurrent.RunnableFuture;
 
 import static com.example.elliot.buzztrack.R.id.BAC;
 import static com.example.elliot.buzztrack.R.id.curDrink;
+import static com.example.elliot.buzztrack.R.id.Drinks_Consumed;
 
 public class Home extends AppCompatActivity {
 
@@ -33,8 +34,6 @@ public class Home extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         drinkList = new ArrayList<Drink>(); //initalize the drinkList
-
-
 
         //grab data from database for settings (if any)
         //currentSettings = new SettingsData();
@@ -66,8 +65,7 @@ public class Home extends AppCompatActivity {
             public void run() {
                 updateBAC();
             }
-        }, 0, 5000);
-
+        }, 0, 5000); //make the timer call updateBAC() method every 5000 miliseconds (5 seconds)
 
         currentDrink = new Drink("beer",5.0,12.0,System.currentTimeMillis());
         TextView dName = (TextView) findViewById(curDrink);
@@ -94,7 +92,7 @@ public class Home extends AppCompatActivity {
 
 
     @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data)
+    public void onActivityResult(int requestCode, int resultCode, Intent data) //this method executes when returning from another view
     {
         super.onActivityResult(requestCode,resultCode,data);
         switch(requestCode)
@@ -137,19 +135,19 @@ public class Home extends AppCompatActivity {
         startActivityForResult(intent, 1); //1 is for the changeDrink
     }
 
-    public void changeSettings(View view)
+    public void changeSettings(View view) //move to change settings activity
     {
         Intent intent = new Intent(this, Settings.class);
         intent.putExtra("settings", currentSettings);
         startActivityForResult(intent, 2); //1 is for the changeDrink
     }
 
-    public void updateBAC()
+    public void updateBAC() //this is a method that executes every 5 seconds to update the BAC calculation
     {
         final TextView abv = (TextView) findViewById(BAC);
+        final TextView drinksConsumedAmmount = (TextView) findViewById(Drinks_Consumed);
 
-
-        if (currentSettings.isValid && drinkList.size() > 0)
+        if (currentSettings.isValid && drinkList.size() > 0) //if one or more drinks have been consumed and user information had been specified
         {
             double gramsOfAlcohol = drinksToGrams();
             double weightAmmount = currentSettings.weight * 453.592; //453.592 is a conversion from lbs to grams
@@ -171,7 +169,12 @@ public class Home extends AppCompatActivity {
             if (adjustedBAC < 0.0)
             {
                 adjustedBAC = 0.0;
-                //remove all drinks
+                //#TODO
+                //BEFORE REMOVING ALL DRINKS, LOG THE INFO HERE, CREATE A DRINKING SESSION AND THEN ADD TO LOG PAGE
+
+                drinkList.clear();//remove all drinks
+
+
             }
 
 
@@ -183,6 +186,7 @@ public class Home extends AppCompatActivity {
                     public void run()
                     {
                         abv.setText(bacString);
+                        drinksConsumedAmmount.setText("Drinks consumed: " + drinkList.size()); //update the ammount of drinks consumed.
                     }
                 });
             }
@@ -193,13 +197,13 @@ public class Home extends AppCompatActivity {
                 public void run()
                 {
                     abv.setText("BAC: 0.0");
+                    drinksConsumedAmmount.setText("Drinks consumed: 0");
                 }
             });
         }
-
     }
 
-    public void addDrink(View view)
+    public void addDrink(View view) //this method will add a drink to the list of consumed drinks and update the BAC.
     {
         if (!currentSettings.isValid) //check to make sure user as added settings first.
         {
