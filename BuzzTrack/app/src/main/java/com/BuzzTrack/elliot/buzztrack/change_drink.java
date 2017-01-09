@@ -1,4 +1,4 @@
-package com.example.elliot.buzztrack;
+package com.BuzzTrack.elliot.buzztrack;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -9,9 +9,9 @@ import android.widget.Toast;
 
 import java.util.Objects;
 
-import static com.example.elliot.buzztrack.R.id.ABV;
-import static com.example.elliot.buzztrack.R.id.FluidOZ;
-import static com.example.elliot.buzztrack.R.id.DrinkName;
+import static com.BuzzTrack.elliot.buzztrack.R.id.ABV;
+import static com.BuzzTrack.elliot.buzztrack.R.id.FluidOZ;
+import static com.BuzzTrack.elliot.buzztrack.R.id.DrinkName;
 
 /**
  * Created by Elliot on 10/30/2016.

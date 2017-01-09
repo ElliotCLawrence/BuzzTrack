@@ -1,4 +1,4 @@
-package com.example.elliot.buzztrack;
+package com.BuzzTrack.elliot.buzztrack;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

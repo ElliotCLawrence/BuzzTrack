@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.elliot.buzztrack">
+    package="com.BuzzTrack.elliot.buzztrack">
 
     <application
         android:allowBackup="true"
@@ -9,7 +9,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
 
-        <activity android:name=".Home"
+        <activity android:name="com.BuzzTrack.elliot.buzztrack.Home"
 
          android:screenOrientation="portrait">
             <intent-filter>
@@ -18,9 +18,9 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".change_drink"
+        <activity android:name="com.BuzzTrack.elliot.buzztrack.change_drink"
             android:screenOrientation="portrait"/>
-        <activity android:name=".Settings"
+        <activity android:name="com.BuzzTrack.elliot.buzztrack.Settings"
             android:screenOrientation="portrait"/>
 
     </application>

@@ -1,4 +1,4 @@
-package com.example.elliot.buzztrack;
+package com.BuzzTrack.elliot.buzztrack;
 
 
 import android.app.Activity;
@@ -9,11 +9,11 @@ import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.RadioButton;
 
-import static com.example.elliot.buzztrack.R.id.heightBox;
-import static com.example.elliot.buzztrack.R.id.weightBox;
-import static com.example.elliot.buzztrack.R.id.sexRadio;
-import static com.example.elliot.buzztrack.R.id.maleRadio;
-import static com.example.elliot.buzztrack.R.id.femaleRadio;
+import static com.BuzzTrack.elliot.buzztrack.R.id.heightBox;
+import static com.BuzzTrack.elliot.buzztrack.R.id.weightBox;
+import static com.BuzzTrack.elliot.buzztrack.R.id.sexRadio;
+import static com.BuzzTrack.elliot.buzztrack.R.id.maleRadio;
+import static com.BuzzTrack.elliot.buzztrack.R.id.femaleRadio;
 
 
 import android.view.View;

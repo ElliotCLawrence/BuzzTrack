@@ -1,8 +1,6 @@
-package com.example.elliot.buzztrack;
+package com.BuzzTrack.elliot.buzztrack;
 
 import java.io.Serializable;
-import java.sql.Time;
-import java.util.Calendar;
 
 
 /**
