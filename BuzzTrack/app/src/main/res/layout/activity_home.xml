@@ -79,7 +79,7 @@
         android:clickable="false"
         android:background="@android:color/transparent"
         style="@android:style/Widget.AutoCompleteTextView"
-        android:layout_marginBottom="74dp"
+        android:layout_marginBottom="74sp"
         android:layout_above="@+id/Drink"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true" />
@@ -95,7 +95,7 @@
         android:clickable="false"
         android:textColor="#000000"
         android:background="@android:color/transparent"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="30sp"
         android:layout_above="@+id/curDrink"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true" />
@@ -115,7 +115,7 @@
         android:textColor="#000000"
         android:inputType="none"
         android:background="@android:color/transparent"
-        android:layout_marginBottom="18dp"
+        android:layout_marginBottom="18sp"
         android:layout_above="@+id/Drinks_Consumed"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true" />
