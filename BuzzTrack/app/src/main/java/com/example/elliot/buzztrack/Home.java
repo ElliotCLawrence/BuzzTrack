@@ -26,6 +26,7 @@ public class Home extends AppCompatActivity {
     SettingsData currentSettings;
     private Drink currentDrink;
     Timer updateBACScheduler;
+    int drinkCount;
 
 
     @Override
@@ -34,6 +35,7 @@ public class Home extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         drinkList = new ArrayList<Drink>(); //initalize the drinkList
+        drinkCount = 0;
 
         //grab data from database for settings (if any)
         //currentSettings = new SettingsData();
@@ -178,7 +180,7 @@ public class Home extends AppCompatActivity {
             }
 
 
-            final String bacString = "BAC: "+ String.format("%.8f",adjustedBAC); //create the final string
+            final String bacString = "BAC: "+ String.format("%.3f",adjustedBAC); //create the final string
 
             assert abv != null;
             {
@@ -186,7 +188,7 @@ public class Home extends AppCompatActivity {
                     public void run()
                     {
                         abv.setText(bacString);
-                        drinksConsumedAmmount.setText("Drinks consumed: " + drinkList.size()); //update the ammount of drinks consumed.
+                        drinksConsumedAmmount.setText("Drinks consumed: " + drinkCount); //update the ammount of drinks consumed.
                     }
                 });
             }
@@ -196,8 +198,8 @@ public class Home extends AppCompatActivity {
             runOnUiThread(new Runnable() {
                 public void run()
                 {
-                    abv.setText("BAC: 0.0");
-                    drinksConsumedAmmount.setText("Drinks consumed: 0");
+                    abv.setText("BAC: 0.000");
+                    drinksConsumedAmmount.setText("Drinks consumed last session: " + drinkCount);
                 }
             });
         }
@@ -214,6 +216,7 @@ public class Home extends AppCompatActivity {
         {
             Drink newDrink = new Drink(currentDrink.name, currentDrink.bAC, currentDrink.volume,  System.currentTimeMillis());
             drinkList.add(newDrink);
+            drinkCount = drinkList.size();
             updateBAC();
         }
         else
@@ -227,6 +230,7 @@ public class Home extends AppCompatActivity {
         if (drinkList.size()> 0)
         {
             drinkList.remove(drinkList.size()-1);
+            drinkCount = drinkList.size();
             updateBAC();
         }
     }
